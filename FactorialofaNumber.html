@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Auto Factorial Calculator</title>
+</head>
+<body>
+    <h2>Auto Factorial Calculator</h2>
+
+    <label>Enter a number:</label>
+    <input type="number" id="num" min="0" oninput="calculateFactorial()"><br><br>
+
+    <h3 id="result">Factorial is: 1</h3>
+
+    <script>
+        function calculateFactorial() {
+            let num = parseInt(document.getElementById("num").value) || 0;
+
+            if (num < 0) {
+                document.getElementById("result").innerText = "Please enter a non-negative integer.";
+                return;
+            }
+
+            let factorial = 1;
+            for (let i = 1; i <= num; i++) {
+                factorial *= i;
+            }
+
+            document.getElementById("result").innerText = "Factorial is: " + factorial;
+        }
+    </script>
+</body>
+</html>
+

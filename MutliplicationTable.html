@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Multiplication Table</title>
+</head>
+<body>
+  <h2>Multiplication Table</h2>
+  <label>Enter a number:</label>
+  <input type="number" id="num" value="5">
+  <label>Up to:</label>
+  <input type="number" id="upto" value="10" min="1">
+  <button onclick="printTable()">Show Table</button>
+  <div id="tableContainer" style="margin-top:16px; font-family:monospace;"></div>
+  <script>
+    function printTable() {
+      const n = parseInt(document.getElementById("num").value);
+      const upto = parseInt(document.getElementById("upto").value) || 10;
+      if (isNaN(n)) {
+        document.getElementById("tableContainer").innerText = "Please enter a valid number.";
+        return;
+      }
+      let html = "<pre>";
+      for (let i = 1; i <= upto; i++) {
+        html += `${n} x ${i} = ${n * i}\n`;
+      }
+      html += "</pre>";
+      document.getElementById("tableContainer").innerHTML = html;
+    }
+    printTable();
+  </script>
+</body>
+</html>
